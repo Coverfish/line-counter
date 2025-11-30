@@ -25,12 +25,9 @@ def count_lines_in_file(path: Path) -> tuple[int, int]:
     return total, non_empty
 
 
+SUPPORTED_EXTENSIONS = {".py", ".c", ".h", ".cpp", ".hpp"}
+
 def collect_stats(folder: Path, exclude_name: str):
-    """
-    Returns:
-      file_stats: list[(filename, total, non_empty)]
-      total_lines, total_non_empty
-    """
     file_stats: list[tuple[str, int, int]] = []
     total_lines = 0
     total_non_empty = 0
@@ -38,8 +35,8 @@ def collect_stats(folder: Path, exclude_name: str):
     for item in sorted(folder.iterdir()):
         if (
             item.is_file()
-            and item.suffix == ".py"
-            and item.name != exclude_name  # don't count this script
+            and item.suffix in SUPPORTED_EXTENSIONS
+            and item.name != exclude_name
         ):
             file_total, file_non_empty = count_lines_in_file(item)
             file_stats.append((item.name, file_total, file_non_empty))
@@ -47,7 +44,6 @@ def collect_stats(folder: Path, exclude_name: str):
             total_non_empty += file_non_empty
 
     return file_stats, total_lines, total_non_empty
-
 
 # ------------------ database helpers ------------------ #
 
