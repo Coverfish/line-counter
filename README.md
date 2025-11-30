@@ -89,8 +89,7 @@ It also ignores linecounter.py itself so the tool doesn’t bloat its own stats.
 If you want to support more file types, just edit SUPPORTED_EXTENSIONS in
 linecounter.py and add whatever extensions you like, for example:
 
-python
-Copy code
+```python
 SUPPORTED_EXTENSIONS = {".py", ".c", ".h", ".cpp", ".hpp", ".js", ".ts", ".rs"}
 🧰 Requirements
 Python 3.10+ (older 3.x will likely be fine too).
