@@ -186,6 +186,7 @@ And ChatGPT likes turning “quick scripts” into tiny weird apps.
 
 Enjoy 🎉
 
+```markdown
 ## 📸 Screenshots
 
 ![Line Counter GUI](screenshots/1.png)
